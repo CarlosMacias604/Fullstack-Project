@@ -5,6 +5,46 @@ const { body, param, query } = require('express-validator');
 const validate = require('../Middlewares/validation');
 const postController = require('../Controllers/postController');
 const authMiddleware = require('../Middlewares/auth');
+/**
+ * @swagger
+ * /api/posts/search:
+ *   get:
+ *     summary: Search posts by title or content
+ *     tags:
+ *       - Posts
+ *     parameters:
+ *       - in: query
+ *         name: query
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Search query
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *         description: Filter by category ID (optional)
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *     responses:
+ *       200:
+ *         description: Search results
+ *       400:
+ *         description: Search query is required
+ */
+router.get('/search', [
+    query('query').notEmpty().withMessage('Search query is required'),
+    query('page').optional().isInt({ min: 1 }).withMessage('Page must be a positive integer'),
+    query('limit').optional().isInt({ min: 1 }).withMessage('Limit must be a positive integer'),
+], validate, postController.searchPosts);
 
 /**
  * @swagger

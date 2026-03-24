@@ -23,6 +23,14 @@ const postSchema = new mongoose.Schema({
         ref: 'Category',
         required: true
     },
+    likes: {
+        type: Number,
+        default: 0
+    },
+    commentsCount: {
+        type: Number,
+        default: 0
+    },
     createdAt: {
         type: Date,
         default: Date.now

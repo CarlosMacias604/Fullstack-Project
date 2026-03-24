@@ -8,6 +8,8 @@ const authRoutes = require('./Routes/authRoutes');
 const userRoutes = require('./Routes/userRoutes');
 const postRoutes = require('./Routes/postRoutes');
 const categoryRoutes = require('./Routes/categoryRoutes');
+const commentRoutes = require('./Routes/commentRoutes');
+const likeRoutes = require('./Routes/likeRoutes');
 
 //Import middleware
 const swaggerMiddleware = require('./Middlewares/swagger');
@@ -33,6 +35,8 @@ app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', postRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api', commentRoutes);
+app.use('/api', likeRoutes);
 
 //Swagger
 swaggerMiddleware(app);
