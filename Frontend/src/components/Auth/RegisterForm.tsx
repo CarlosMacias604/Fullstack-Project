@@ -8,10 +8,6 @@ import {
   CardHeader,
   Typography,
   Link as MuiLink,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
 } from '@mui/material';
 import { useAuth } from '../../hooks/useAuth';
 import { ErrorAlert } from '../Common/ErrorAlert';
@@ -59,7 +55,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
       await register(formData.name, formData.email, formData.password, formData.role);
       onSuccess?.();
     } catch (err) {
-      // Error is handled by context
+      // Error handled
     }
   };
 
@@ -118,19 +114,6 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
             fullWidth
             disabled={loading}
           />
-
-          <FormControl fullWidth disabled={loading}>
-            <InputLabel>Role</InputLabel>
-            <Select
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              label="Role"
-            >
-              <MenuItem value="host">Host</MenuItem>
-              <MenuItem value="admin">Admin</MenuItem>
-            </Select>
-          </FormControl>
 
           <Button
             type="submit"

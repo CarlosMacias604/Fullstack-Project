@@ -10,13 +10,13 @@ export const LoginPage: React.FC = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard');
+      navigate('/');
     }
   }, [isAuthenticated, navigate]);
 
   return (
     <AuthLayout>
-      <LoginForm onSuccess={() => navigate('/dashboard')} />
+      <LoginForm onSuccess={() => navigate('/')} />
     </AuthLayout>
   );
 };

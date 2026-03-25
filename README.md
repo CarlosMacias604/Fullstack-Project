@@ -135,6 +135,10 @@ npm start
 - Visit `http://localhost:3001/` - should show "¡Hi API PostSpace!"
 - Visit `http://localhost:3001/swagger` - API documentation
 
+**Database Seeders:** When the backend starts, it automatically runs two seeders:
+- 🌱 **Categories Seeder** - Creates 8 default categories (Technology, Travel, Food, etc.) if they don't exist
+- 👤 **Admin Seeder** - Creates a default admin user if none exists
+
 ### Start Frontend Development Server
 
 In a new terminal:
@@ -145,6 +149,48 @@ npm run dev
 ```
 
 ✅ Frontend will open at: `http://localhost:5173` (usually automatic)
+
+---
+
+## 🔐 Default Admin Credentials
+
+Once both servers are running, you can test the application with the default admin account:
+
+```
+📧 Email: admin@postspace.com
+🔑 Password: Admin@123456
+```
+
+The admin user is created automatically on the first backend startup. Use these credentials to:
+- Login to the application
+- Access admin features
+- Manage posts, users, and categories
+
+---
+
+## ✅ Testing the Application
+
+1. **Login as Admin:**
+   - Go to `http://localhost:5173/login`
+   - Enter: `admin@postspace.com` / `Admin@123456`
+   - You'll be redirected to the home page (`/`)
+
+2. **View API Documentation:**
+   - Visit `http://localhost:3001/swagger`
+   - Explore all available endpoints with interactive API testing
+
+3. **Create a New Account:**
+   - Go to `http://localhost:5173/register`
+   - Fill in the registration form
+   - New users are created with `host` role by default
+   - After registration, login with your new account
+
+4. **Test Features:**
+   - Create, edit, and delete posts
+   - Browse posts by category
+   - Add and view comments
+   - Like/unlike posts
+   - Search for posts
 
 ---
 
